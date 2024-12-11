@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t9</title>
+</head>
+    <body>
+        <h1>t9</h1>
+        <script>
+            function even(arr) {
+              const en = [];
+              for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 == 0) {
+                  en.push(arr[i]);
+                }
+              }
+              return en;
+            }
+            const numbers = [2, 7, 4];
+            const evenArray = even(numbers);
+
+            console.log("Original numbers: ", numbers);
+            console.log("Even numbers: ", evenArray);
+
+        </script>
+    </body>
+</html>

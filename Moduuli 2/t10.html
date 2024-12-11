@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t10</title>
+</head>
+    <body>
+    <script>
+        function voting(){
+
+          const room = parseInt(prompt("Enter how many contestants"));
+          const candidates = [];
+
+
+          for(let i = 0; i <= room; i++) {
+            const cName = prompt(`Enter the name for candidate ${i}:`);
+            candidates.push({name: cName, votes: 0});
+          }
+
+
+            const vCount = parseInt(prompt("How many voters"));
+
+            for(let i = 0; i <= vCount; i++){
+              const vote = prompt(`Voter ${i}, enter who are you voting: `).trim();
+
+              if(vote === ""){
+                console.log(`Voter ${i} cast an empty vote`);
+              }else{
+
+                const candidate = candidates.find(c => c.name.toLowerCase() === vote.toLowerCase());
+                if(candidate){
+                  candidate.votes++;
+                }else{
+                  console.log(`Invalid vote ${i}: Candidate does not exist`);
+                }
+              }
+            }
+
+
+            candidates.sort((a, b) => b.votes - a.votes);
+
+            const winner = candidates[0];
+            console.log(`The winner is ${winner.name} with ${winner.votes} votes.`)
+
+            console.log("Results");
+            candidates.forEach(candidate => {
+              console.log(`${candidate.name}: ${candidate.votes} votes`);
+            });
+        }
+        voting();
+    </script>
+    </body>
+</html>
